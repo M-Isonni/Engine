@@ -4,6 +4,7 @@
 engine::Engine::Engine() {
 	
 	SDL_Init(SDL_INIT_VIDEO);
+	ComponentCounter = 0;
 }
 
 engine::Engine& engine::Engine::Get() {

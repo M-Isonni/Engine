@@ -2,6 +2,9 @@
 #include "Window.h"
 #include "Renderer.h"
 #include <stdio.h>
+#include "RenderComponent.h"
+#include "Actor.h"
+#include "Component.h"
 
 class GameRenderer :public engine::Renderer {
 public:
@@ -16,6 +19,17 @@ void GameRenderer::Tick() {
 int main(int argc, char **argv) {
 
 	engine::Engine& Engine= engine::Engine::Get();
+
+	Engine.RegisterComponent<engine::RenderComponent>();
+
+	engine::Actor actor = engine::Actor();	
+	actor.AddComponent<engine::RenderComponent>();
+	std::shared_ptr<engine::RenderComponent> RenderComponent = actor.GetComponent<engine::RenderComponent>();
+	printf("%d", RenderComponent->ComponentType);
+
+	std::vector<std::shared_ptr<engine::RenderComponent>> renderComponents = actor.GetComponents<engine::RenderComponent>();
+	printf("%d", renderComponents[0]->Type);
+
 	engine::Window Window(800, 600);
 	GameRenderer Renderer(Window);
 

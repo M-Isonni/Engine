@@ -19,6 +19,6 @@ namespace engine {
 		void DrawLine(int X, int Y, int x1, int y2);
 	protected:
 		Window& Window;
-		void *Handle;				
+		void *Handle;
 	};
 }
