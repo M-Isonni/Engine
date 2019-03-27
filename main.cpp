@@ -5,6 +5,9 @@
 #include "RenderComponent.h"
 #include "Actor.h"
 #include "Component.h"
+#include "Context.h"
+#include "GLProgram.h"
+#include "Shader.h"
 
 class GameRenderer :public engine::Renderer {
 public:
@@ -19,25 +22,36 @@ void GameRenderer::Tick() {
 int main(int argc, char **argv) {
 
 	engine::Engine& Engine= engine::Engine::Get();
-
-	Engine.RegisterComponent<engine::RenderComponent>();
-
-	engine::Actor actor = engine::Actor();	
-	actor.AddComponent<engine::RenderComponent>();
-	std::shared_ptr<engine::RenderComponent> RenderComponent = actor.GetComponent<engine::RenderComponent>();
-	printf("%d", RenderComponent->ComponentType);
-
-	std::vector<std::shared_ptr<engine::RenderComponent>> renderComponents = actor.GetComponents<engine::RenderComponent>();
-	printf("%d", renderComponents[0]->Type);
+	
+	Engine.RegisterComponent<engine::RenderComponent>();	
 
 	engine::Window Window(800, 600);
 	GameRenderer Renderer(Window);
-
-	for (;;)
+	engine::Context Context(Window);
+	
+	engine::GLProgram Prg;	
+	
+	//ATTACCHING SHADERS -> to be put in a manager class
+	engine::Shader vertex_shader(Vertex_Shader, "vertex.glsl");
+	engine::Shader fragment_shader(Fragment_Shader, "frag.glsl");
+	vertex_shader.AttachShader(Prg);
+	fragment_shader.AttachShader(Prg);
+	Prg.LinkProgram();
+	vertex_shader.DetachShader(Prg);
+	fragment_shader.DetachShader(Prg);
+	fragment_shader.~Shader();
+	vertex_shader.~Shader();
+	Prg.UseProgram();
+	//END ATTACHING SHADER
+	
+	Engine.InitComponents();
+	int running = 1;
+	while (running)
 	{
 		Renderer.Clear();
 
-		Window.DequeueEvent();
+		running = Window.DequeueEvent();
+		Engine.UpdateComponents(1 / 60);
 		Renderer.Tick();
 		
 		Renderer.Present();

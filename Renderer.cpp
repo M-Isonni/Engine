@@ -13,6 +13,8 @@ engine::Renderer::~Renderer() {
 void engine::Renderer::Clear() const {	
 	SDL_SetRenderDrawColor(reinterpret_cast<SDL_Renderer*>(Handle), 0, 0, 0, 255);
 	SDL_RenderClear(reinterpret_cast<SDL_Renderer*>(Handle));
+
+	glClearColor(0,1,0,1);
 }
 
 void engine::Renderer::Present() const {

@@ -10,7 +10,7 @@ namespace engine {
 
 		void* GetHandle() const;
 
-		void DequeueEvent() const;
+		int DequeueEvent() const;
 	protected:
 		void* Handle;
 	};
