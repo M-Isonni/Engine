@@ -24,7 +24,7 @@ engine::Shader::Shader(ShaderType shader_type,const char* filename) {
 
 	SDL_RWclose(rw);
 
-	GLuint shader = glCreateShader(shader_type);
+	unsigned int shader = glCreateShader(shader_type);
 	glShaderSource(shader, 1, (const GLchar * *)& source, (GLint*)& file_len);
 	glCompileShader(shader);
 
@@ -33,7 +33,7 @@ engine::Shader::Shader(ShaderType shader_type,const char* filename) {
 	GLint compile_status;
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &compile_status);
 	if (compile_status == GL_FALSE) {
-		GLint log_size;
+		int log_size;
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &log_size);
 		auto error_log = SDL_malloc(log_size + 1);
 		if (!error_log) {

@@ -1,8 +1,16 @@
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\vc142.pdb
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\vc142.idb
+c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\window.obj
+c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\shader.obj
+c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\renderer.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\rendercomponent.obj
+c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\meshcomponent.obj
+c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\engine.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\main.obj
+c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\inputmanager.obj
+c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\glprogram.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\enemy.obj
+c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\context.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\component.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\actor.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\maincpp.tlog\cl.command.1.tlog

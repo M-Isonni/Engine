@@ -4,11 +4,9 @@ namespace engine {
 
 class Component {
 
-public:
-	Component();
+public:	
 	virtual void BeginPlay();
 	virtual void Tick(float DeltaTime);
-
 	unsigned int ComponentType;
 };
 }

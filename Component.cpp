@@ -2,9 +2,6 @@
 #include "Engine.h"
 
 
-engine::Component::Component() {
-	engine::Engine::Get().AddComponent(this);
-}
 void engine::Component::BeginPlay() {
 	
 }

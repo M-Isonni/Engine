@@ -42,16 +42,15 @@ int main(int argc, char **argv) {
 	fragment_shader.~Shader();
 	vertex_shader.~Shader();
 	Prg.UseProgram();
-	//END ATTACHING SHADER
+	//END ATTACHING SHADER	
 	
-	Engine.InitComponents();
 	int running = 1;
 	while (running)
 	{
 		Renderer.Clear();
 
 		running = Window.DequeueEvent();
-		Engine.UpdateComponents(1 / 60);
+
 		Renderer.Tick();
 		
 		Renderer.Present();

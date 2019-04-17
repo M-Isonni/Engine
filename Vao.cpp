@@ -3,7 +3,7 @@
 unsigned int engine::Vao::VaoCount = 0;
 
 engine::Vao::Vao() {
-	GLuint vao = VaoCount++;
+	unsigned int vao = VaoCount++;
 	VaoId = vao;
 	glGenVertexArrays(1, &VaoId);
 	glBindVertexArray(VaoId);
@@ -19,8 +19,8 @@ engine::Vao::~Vao(){
 
 std::shared_ptr<unsigned int> engine::Vao::Vbo(unsigned int size) {
 	
-	GLuint vbo[3];
-	glGenBuffers(3, vbo);
+	GLuint vbo;
+	glGenBuffers(1, &vbo);
 	
 	std::shared_ptr<unsigned int> pointer_to_vbo = std::make_shared<unsigned int>(vbo);
 
