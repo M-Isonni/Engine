@@ -14,3 +14,7 @@ engine::World& engine::World::Get() {
 engine::World::~World() {
 	
 }
+
+void engine::World::AddActor(std::shared_ptr<engine::Actor> InActor) {
+	Actors.push_back(InActor);
+}

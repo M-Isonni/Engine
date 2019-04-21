@@ -1,2 +1,6 @@
-﻿  main.cpp
+﻿  Component.cpp
+  GameManager.cpp
+  engine.cpp
+  main.cpp
+  Generating Code...
   maincpp.vcxproj -> C:\Users\Massimo\Documents\VisualStudioProjects\Engine\x64\Debug\maincpp.exe

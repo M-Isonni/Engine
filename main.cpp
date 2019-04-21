@@ -1,12 +1,7 @@
 #include "Engine.h"
 #include "Window.h"
-#include "Renderer.h"
 #include <stdio.h>
 #include "Actor.h"
-#include "Component.h"
-#include "Context.h"
-#include "GLProgram.h"
-#include "Shader.h"
 #include "SpriteComponent.h"
 #include "World.h"
 #include "GameManager.h"
@@ -23,23 +18,32 @@ int main(int argc, char **argv) {
 	engine::Window Window(800, 600);
 	
 	//setting up context and program
-	Manager.Setup(Window);
+	Engine.Init(Window);
 
 	//ATTACCHING SHADERS -> to be put in a manager class
 
-	Manager.compile_shader(Vertex_Shader, "vertex.glsl");
-	Manager.compile_shader(Fragment_Shader, "frag.glsl");	
+	Engine.compile_shader(Vertex_Shader, "vertex.glsl");
+	Engine.compile_shader(Fragment_Shader, "frag.glsl");
 
-	Manager.Program->UseProgram();
+	Engine.Program->UseProgram();
 	//END ATTACHING SHADER	
+
+	//Adding Actors
+	std::shared_ptr<engine::Actor> Actor = std::make_shared<engine::Actor>();
+	World.AddActor(Actor);
+	//engine::World::Get().Actors.push_back(Actor);
+	//
+
+	//Adding components to actor
+	std::shared_ptr<engine::SpriteComponent> cmp = Actor->AddComponent<engine::SpriteComponent>();
 	
 	int running = 1;
 	while (running)
 	{
-		//Manager.ClearWindow();
+		Engine.ClearWindow();
 		running = Window.DequeueEvent();		
-		//Manager.Tick(1/60);	
-		
+		Manager.Tick(1/60);	
+		std::shared_ptr<engine::Actor> A = World.Actors[0];		
 	}	
 	return 0;
 }

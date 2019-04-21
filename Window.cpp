@@ -22,6 +22,7 @@ int engine::Window::DequeueEvent() const {
 			return engine::Quit();
 		}
 		manageInput(Event);
+		
 	}
 	return 1;
 }

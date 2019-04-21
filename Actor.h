@@ -10,10 +10,10 @@ namespace engine {
 		Actor();
 		~Actor();		
 		virtual void BeginPlay();
-		virtual void Tick(float DeltaTime);
+		virtual void Tick(float DeltaTime);		
 
 		template<typename T>
-		std::shared_ptr<T> AddComponent() {
+		std::shared_ptr<T> AddComponent() {			
 			std::shared_ptr<T> NewComponent = std::make_shared<T>();
 			InternalAddComponent(NewComponent);
 			NewComponent->ComponentType = T::Type;
@@ -42,9 +42,8 @@ namespace engine {
 			}
 		}
 
-	protected:
+	protected:		
 		std::vector<std::shared_ptr<Component>> Components;
-
 		void InternalAddComponent(std::shared_ptr<Component> Component);
 	};
 }

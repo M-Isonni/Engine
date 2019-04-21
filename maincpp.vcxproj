@@ -137,7 +137,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
-    <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Vao.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -154,7 +153,6 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Private.h" />
-    <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Vao.h" />
     <ClInclude Include="Window.h" />

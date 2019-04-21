@@ -5,10 +5,11 @@ unsigned int engine::SpriteComponent::Type = 0;
 
 engine::SpriteComponent::SpriteComponent()
 {
-	Enabled = true;
-	engine::Vao vao;
-	VaoId = vao.VaoId;
-	vao.Vbo();
+	Enabled = true;	
+	vao = new engine::Vao();
+	VaoId = vao->VaoId;
+	vao->Vbo();
+	//printf("%d", *vao->Vbos[0]);
 
 	float quad[] = {
 		1,1,0,
@@ -19,13 +20,18 @@ engine::SpriteComponent::SpriteComponent()
 		1,-1,0
 	};
 	
-	glBindBuffer(GL_ARRAY_BUFFER, *vao.Vbos[0]);
+	glBindBuffer(GL_ARRAY_BUFFER, *vao->Vbos[0]);
 	glBufferData(GL_ARRAY_BUFFER, 6 * 3 * sizeof(float), quad, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);	
 }
 
+engine::SpriteComponent::~SpriteComponent() {
+
+}
+
 void engine::SpriteComponent::Tick(float deltaTime) {
+	//printf("%d", *vao->Vbos[0]);
 	glBindVertexArray(VaoId);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 }

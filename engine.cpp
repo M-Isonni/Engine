@@ -1,5 +1,7 @@
 #include "Engine.h"
 #include "Private.h"
+#include "Context.h"
+#include "Shader.h"
 
 engine::Engine::Engine() {
 	
@@ -17,5 +19,24 @@ engine::Engine& engine::Engine::Get() {
 }
 engine::Engine::~Engine() {
 	SDL_Quit();
+}
+
+void engine::Engine::Init(engine::Window& InWindow) {
+	engine::Context Context(InWindow);
+	engine::GLProgram Prg;
+	Program = &Prg;
+}
+
+void engine::Engine::compile_shader(ShaderType shader_type, const char* name)
+{
+	engine::Shader shader(shader_type, name);	
+	shader.AttachShader(*Program);
+	Program->LinkProgram();
+	shader.DetachShader(*Program);
+}
+
+void engine::Engine::ClearWindow()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
 }
 

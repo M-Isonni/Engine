@@ -9,8 +9,7 @@ namespace engine {
 	class GameManager {
 	public:		
 		static GameManager& Get();
-		~GameManager();
-		engine::GLProgram* Program;
+		~GameManager();		
 		void Tick(float DeltaTime);
 		void ClearWindow();	
 		void Setup(Window& InWindow);

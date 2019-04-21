@@ -1,6 +1,8 @@
 #pragma once
 #include<vector>
 #include "Component.h"
+#include "Window.h"
+#include "GLProgram.h"
 
 
 namespace engine {
@@ -12,7 +14,14 @@ namespace engine {
 
 	public:		
 		static Engine& Get();
-		~Engine();		
+		~Engine();	
+
+		engine::GLProgram* Program;
+		
+		void Init(Window& InWindow);
+		void compile_shader(ShaderType shader_type, const char* name);
+		void ClearWindow();
+
 		template<typename T>
 		void RegisterComponent() {			
 			T::Type = ++ComponentCounter;
