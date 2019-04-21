@@ -5,7 +5,7 @@ namespace engine {
 class Component {
 
 public:
-	Component();
+	bool Enabled;
 	virtual void BeginPlay();
 	virtual void Tick(float DeltaTime);
 

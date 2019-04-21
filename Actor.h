@@ -7,6 +7,8 @@
 namespace engine {
 	class Actor {
 	public:
+		Actor();
+		~Actor();		
 		virtual void BeginPlay();
 		virtual void Tick(float DeltaTime);
 

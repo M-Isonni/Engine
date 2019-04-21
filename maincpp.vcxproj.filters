@@ -36,9 +36,6 @@
     <ClCompile Include="Component.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="RenderComponent.cpp">
-      <Filter>File di origine</Filter>
-    </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
@@ -60,7 +57,13 @@
     <ClCompile Include="Vao.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
-    <ClCompile Include="MeshComponent.cpp">
+    <ClCompile Include="SpriteComponent.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,9 +86,6 @@
     <ClInclude Include="Component.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="RenderComponent.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
@@ -104,7 +104,13 @@
     <ClInclude Include="Vao.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="MeshComponent.h">
+    <ClInclude Include="SpriteComponent.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,23 +1,24 @@
 #include "Shader.h"
 #include "Private.h"
 #include <iostream>
+#include <cstdlib>
 
 engine::Shader::Shader(ShaderType shader_type,const char* filename) {
 	SDL_RWops* rw = SDL_RWFromFile(filename, "rb");
 	if (!rw) {
 		SDL_Log("unable to open file");
-		exit(1);
+		return;
 	}
 
-	size_t file_len = SDL_RWsize(rw);
+	std::size_t file_len = SDL_RWsize(rw);
 	auto source = SDL_malloc(file_len + 1);
 	if (!source) {
-		SDL_Log("unable to allocate memory");
-		exit(1);
+		SDL_Log("unable to allocate memory");		
+		return;
 	}
 	if (SDL_RWread(rw, source, 1, file_len) != file_len) {
 		SDL_Log("unable to read file");
-		exit(1);
+		return;
 	}
 
 	reinterpret_cast<char*>(source)[file_len] = 0;
@@ -38,13 +39,13 @@ engine::Shader::Shader(ShaderType shader_type,const char* filename) {
 		auto error_log = SDL_malloc(log_size + 1);
 		if (!error_log) {
 			SDL_Log("unable to allocato memory for log");
-			exit(1);
+			return;
 		}
 		glGetShaderInfoLog(shader, log_size, &log_size, reinterpret_cast<char*>(error_log));
 		reinterpret_cast<char*>(error_log)[log_size] = 0;
 		std::cout<< "shader compile error: %s" << error_log << std::endl;
 		SDL_free(error_log);
-		exit(1);
+		return;
 	}
 
 	shaderID = shader;

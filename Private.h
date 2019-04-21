@@ -2,8 +2,7 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL.h>
-#include <Windows.h>
-#include <glad/glad.h>
+#include <glad.h>
 
 enum ShaderType
 {

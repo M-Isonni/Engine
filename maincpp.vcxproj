@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{805D9802-5C1B-4347-B6F9-4C423E03E656}</ProjectGuid>
     <RootNamespace>maincpp</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -89,11 +89,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Massimo\Documents\Visual Studio 2019\OpenGLInclude;C:\Users\Massimo\Documents\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\massi\Documents\AIV_C;C:\Users\massi\Documents\AIV_C\glad;C:\Users\massi\Documents\AIV_C\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Massimo\Documents\SDL2-2.0.9\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\massi\Documents\AIV_C\SDL2-2.0.9\lib\x64;C:\Users\Massimo\Documents\SDL2-2.0.9\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -130,17 +130,18 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Context.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="GLProgram.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="engine.cpp" />
-    <ClCompile Include="MeshComponent.cpp" />
-    <ClCompile Include="RenderComponent.cpp" />
+    <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Vao.cpp" />
     <ClCompile Include="Window.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actor.h" />
@@ -148,15 +149,16 @@
     <ClInclude Include="Context.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="GameManager.h" />
     <ClInclude Include="GLProgram.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="MeshComponent.h" />
+    <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Private.h" />
-    <ClInclude Include="RenderComponent.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Vao.h" />
     <ClInclude Include="Window.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

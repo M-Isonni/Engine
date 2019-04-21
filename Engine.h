@@ -8,15 +8,11 @@ namespace engine {
 	private:
 		Engine();
 		unsigned int ComponentCounter;
-		std::vector<engine::Component&> Components;
+		
 
-	public:
+	public:		
 		static Engine& Get();
-		~Engine();
-		void AddComponent(engine::Component* comp);
-		void InitComponents();
-		void UpdateComponents(float deltaTime);
-
+		~Engine();		
 		template<typename T>
 		void RegisterComponent() {			
 			T::Type = ++ComponentCounter;

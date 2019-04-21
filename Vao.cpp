@@ -12,15 +12,15 @@ engine::Vao::Vao() {
 engine::Vao::~Vao(){
 	for (std::shared_ptr<unsigned int> ptr : Vbos)
 	{
-		ptr.~shared_ptr();
+		ptr.reset();
 	}
 	Vbos.~vector();
 }
 
-std::shared_ptr<unsigned int> engine::Vao::Vbo(unsigned int size) {
+std::shared_ptr<unsigned int> engine::Vao::Vbo() {
 	
-	GLuint vbo[3];
-	glGenBuffers(3, vbo);
+	unsigned int vbo;
+	glGenBuffers(1, &vbo);
 	
 	std::shared_ptr<unsigned int> pointer_to_vbo = std::make_shared<unsigned int>(vbo);
 

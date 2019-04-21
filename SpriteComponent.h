@@ -4,11 +4,13 @@
 #include <iostream>
 #include <vector>
 
-namespace engine {
-	class MeshComponent : public Component {
+namespace engine {	
+	class SpriteComponent : public Component {
 	public:		
-		MeshComponent(std::shared_ptr<unsigned int> vbo, float vertices[], int size) : Component() {};
+		SpriteComponent();
+		int VaoId;
 		static unsigned int Type;
 		unsigned int vertices_num;
+		virtual void Tick(float deltaTime) override;
 	};
 }

@@ -1,8 +1,7 @@
 #include "Enemy.h"
 
 
-Enemy::Enemy() {
-	RenderComponent = AddComponent<engine::RenderComponent>();
+Enemy::Enemy() {	
 	
 }
 Enemy::~Enemy() {
