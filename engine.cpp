@@ -27,7 +27,7 @@ void engine::Engine::Init(engine::Window& InWindow) {
 	Program = &Prg;
 }
 
-void engine::Engine::compile_shader(ShaderType shader_type, const char* name)
+void engine::Engine::compile_shader(ShaderType shader_type, const char* name) const
 {
 	engine::Shader shader(shader_type, name);	
 	shader.AttachShader(*Program);
@@ -35,8 +35,5 @@ void engine::Engine::compile_shader(ShaderType shader_type, const char* name)
 	shader.DetachShader(*Program);
 }
 
-void engine::Engine::ClearWindow()
-{
-	glClear(GL_COLOR_BUFFER_BIT);
-}
+
 

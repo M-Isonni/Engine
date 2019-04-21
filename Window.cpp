@@ -26,3 +26,12 @@ int engine::Window::DequeueEvent() const {
 	}
 	return 1;
 }
+
+void engine::Window::ClearWindow() const
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void engine::Window::SetClearColor(float r, float g , float b) {
+	glClearColor(r, g, b, 1);
+}

@@ -11,6 +11,8 @@ namespace engine {
 		void* GetHandle() const;
 
 		int DequeueEvent() const;
+		void ClearWindow() const;
+		void SetClearColor(float r, float g, float b);
 	protected:
 		void* Handle;
 	};
