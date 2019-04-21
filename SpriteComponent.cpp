@@ -12,12 +12,12 @@ engine::SpriteComponent::SpriteComponent()
 	//printf("%d", *vao->Vbos[0]);
 
 	float quad[] = {
-		1,1,0,
-		-1,1,0,
-		-1,-1,0,
-		1,1,0,
-		-1,-1,0,
-		1,-1,0
+		0.1,0.1,0,
+		-0.1,0.1,0,
+		-0.1,-0.1,0,
+		0.1,0.1,0,
+		-0.1,-0.1,0,
+		0.1,-0.1,0
 	};
 	
 	glBindBuffer(GL_ARRAY_BUFFER, *vbo);

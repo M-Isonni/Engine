@@ -40,7 +40,8 @@ int main(int argc, char **argv) {
 	{
 		Window.ClearWindow();
 		running = Window.DequeueEvent();		
-		Manager.Tick(1/60);					
+		Manager.Tick(1/60);	
+		SDL_GL_SwapWindow(reinterpret_cast<SDL_Window*>(Window.GetHandle()));
 	}	
 	return 0;
 }

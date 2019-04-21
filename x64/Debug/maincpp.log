@@ -1,14 +1,3 @@
-﻿  Component.cpp
-  Context.cpp
-  Enemy.cpp
-  GLProgram.cpp
-  GameManager.cpp
-  InputManager.cpp
-  Shader.cpp
-  SpriteComponent.cpp
-  Vao.cpp
-  Window.cpp
-  engine.cpp
-  main.cpp
-  Generating Code...
+﻿  SpriteComponent.cpp
+C:\Users\Massimo\Documents\VisualStudioProjects\Engine\maincpp\SpriteComponent.cpp(21): warning C4305: 'initializing': truncation from 'double' to 'float'
   maincpp.vcxproj -> C:\Users\Massimo\Documents\VisualStudioProjects\Engine\x64\Debug\maincpp.exe
