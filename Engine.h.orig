@@ -1,0 +1,29 @@
+#pragma once
+#include<vector>
+#include "Component.h"
+
+
+namespace engine {
+	class Engine {
+	private:
+		Engine();
+		unsigned int ComponentCounter;
+<<<<<<< HEAD
+		
+=======
+>>>>>>> ebc23c7d2d073e9347a4ab8a5e278546c7bff35b
+
+	public:		
+		static Engine& Get();
+<<<<<<< HEAD
+		~Engine();		
+=======
+		~Engine();
+
+>>>>>>> ebc23c7d2d073e9347a4ab8a5e278546c7bff35b
+		template<typename T>
+		void RegisterComponent() {			
+			T::Type = ++ComponentCounter;
+		}
+	};	
+}

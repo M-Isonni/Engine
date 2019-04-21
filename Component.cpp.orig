@@ -1,0 +1,15 @@
+#include "Component.h"
+#include "Engine.h"
+
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> ebc23c7d2d073e9347a4ab8a5e278546c7bff35b
+void engine::Component::BeginPlay() {
+	
+}
+
+void engine::Component::Tick(float DeltaTime) {
+
+}
