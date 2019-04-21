@@ -41,7 +41,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -89,11 +89,11 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\massi\Documents\AIV_C;C:\Users\massi\Documents\AIV_C\glad;C:\Users\massi\Documents\AIV_C\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Massimo\Documents\Include\SDL2-2.0.9\include;C:\Users\Massimo\Documents\Include\glad;C:\Users\Massimo\Documents\Include\SDL2-2.0.9;C:\Users\Massimo\Documents\Include;C:\Users\massi\Documents\AIV_C;C:\Users\massi\Documents\AIV_C\glad;C:\Users\massi\Documents\AIV_C\SDL2-2.0.9\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\massi\Documents\AIV_C\SDL2-2.0.9\lib\x64;C:\Users\Massimo\Documents\SDL2-2.0.9\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Massimo\Documents\Include\SDL2-2.0.9\lib\x64;C:\Users\massi\Documents\AIV_C\SDL2-2.0.9\lib\x64;C:\Users\Massimo\Documents\SDL2-2.0.9\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>

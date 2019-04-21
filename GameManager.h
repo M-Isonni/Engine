@@ -7,14 +7,13 @@
 
 namespace engine {
 	class GameManager {
-	public:
-		GameManager();
+	public:		
 		static GameManager& Get();
 		~GameManager();
-		engine::GLProgram Program;
+		engine::GLProgram* Program;
 		void Tick(float DeltaTime);
 		void ClearWindow();	
-		void Init(Window& InWindow);
+		void Setup(Window& InWindow);
 		void compile_shader(ShaderType shader_type, const char* name);
 	};
 }

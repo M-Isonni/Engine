@@ -5,9 +5,6 @@
 #include "Shader.h"
 #include "Context.h"
 
-engine::GameManager::GameManager()
-{
-}
 
 engine::GameManager & engine::GameManager::Get()
 {
@@ -34,20 +31,20 @@ void engine::GameManager::ClearWindow()
 	glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void engine::GameManager::Init(engine::Window& InWindow) {
+void engine::GameManager::Setup(engine::Window& InWindow) {
 	engine::Context Context(InWindow);
 	engine::GLProgram Prg;
-	Program = Prg;
+	Program = &Prg;
 }
 
 void engine::GameManager::compile_shader(ShaderType shader_type, const char * name)
 {
 	engine::Shader shader(shader_type, name);
 	//engine::Shader fragment_shader(Fragment_Shader, "frag.glsl");
-	shader.AttachShader(Program);
+	shader.AttachShader(*Program);
 	//fragment_shader.AttachShader(Prg);
-	Program.LinkProgram();
-	shader.DetachShader(Program);
+	Program->LinkProgram();
+	shader.DetachShader(*Program);
 	//fragment_shader.DetachShader(Prg);
 	
 }
