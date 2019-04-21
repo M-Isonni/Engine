@@ -3,6 +3,7 @@
 #include "Component.h"
 #include "Window.h"
 #include "GLProgram.h"
+#include "Context.h"
 
 
 namespace engine {
@@ -17,6 +18,7 @@ namespace engine {
 		~Engine();	
 
 		engine::GLProgram* Program;
+		engine::Context* Context;
 		
 		void Init(Window& InWindow);
 		void compile_shader(ShaderType shader_type, const char* name) const;		

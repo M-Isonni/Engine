@@ -1,6 +1,5 @@
 #include "Engine.h"
 #include "Private.h"
-#include "Context.h"
 #include "Shader.h"
 
 engine::Engine::Engine() {
@@ -18,13 +17,14 @@ engine::Engine& engine::Engine::Get() {
 	return *Singleton;
 }
 engine::Engine::~Engine() {
+	delete(Program);
+	delete(Context);
 	SDL_Quit();
 }
 
 void engine::Engine::Init(engine::Window& InWindow) {
-	engine::Context Context(InWindow);
-	engine::GLProgram Prg;
-	Program = &Prg;
+	Context = new engine::Context(InWindow);
+	Program = new engine::GLProgram();
 }
 
 void engine::Engine::compile_shader(ShaderType shader_type, const char* name) const

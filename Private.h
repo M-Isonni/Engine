@@ -6,7 +6,7 @@
 
 enum ShaderType
 {
-	Vertex_Shader = 0x8B31,
+	Vertex_Shader = GL_VERTEX_SHADER,
 	Fragment_Shader = GL_FRAGMENT_SHADER,
 	Geometry_Shader = GL_GEOMETRY_SHADER,
 	Compute_Shader = GL_COMPUTE_SHADER,
