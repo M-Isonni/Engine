@@ -1,9 +1,9 @@
 #include "Engine.h"
 #include "Private.h"
-#include "Shader.h"
 
 engine::Engine::Engine() {
-	
+	Context = nullptr;
+	Program = nullptr;
 	SDL_Init(SDL_INIT_VIDEO);
 	ComponentCounter = 0;
 }
@@ -27,12 +27,20 @@ void engine::Engine::Init(engine::Window& InWindow) {
 	Program = new engine::GLProgram();
 }
 
-void engine::Engine::compile_shader(ShaderType shader_type, const char* name) const
+void engine::Engine::compile_shader(std::vector<ShaderType> shader_types,std::vector<const char*> names) const
 {
-	engine::Shader shader(shader_type, name);	
-	shader.AttachShader(*Program);
+	std::vector<engine::Shader> shaders;
+	for (int i = 0; i < shader_types.size();i++) {		
+		engine::Shader shader(shader_types[i], names[i]);		
+		shaders.push_back(shader);
+		shader.AttachShader(*Program);
+	}	
+
 	Program->LinkProgram();
-	shader.DetachShader(*Program);
+
+	for (int i = 0; i < shader_types.size();i++) {
+		shaders[i].DetachShader(*Program);
+	}		
 }
 
 

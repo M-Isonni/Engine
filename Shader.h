@@ -7,7 +7,7 @@ namespace engine {
 	public:
 		Shader(ShaderType type,const char* name);
 		~Shader();
-		Shader(const Shader& InShader) = delete;
+		
 
 		void AttachShader(GLProgram& InProgram) const;
 		void DetachShader(GLProgram& InProgram) const;

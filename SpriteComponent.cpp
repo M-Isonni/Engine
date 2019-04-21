@@ -1,5 +1,6 @@
 #include "SpriteComponent.h"
 #include "Vao.h"
+#include "Engine.h"
 
 unsigned int engine::SpriteComponent::Type = 0;
 
@@ -24,6 +25,9 @@ engine::SpriteComponent::SpriteComponent()
 	glBufferData(GL_ARRAY_BUFFER, 6 * 3 * sizeof(float), quad, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);	
+
+	x_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "x_variable");
+	y_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "y_variable");
 }
 
 engine::SpriteComponent::~SpriteComponent() {
@@ -32,6 +36,12 @@ engine::SpriteComponent::~SpriteComponent() {
 
 void engine::SpriteComponent::Tick(float deltaTime) {
 	//printf("%d", *vao->Vbos[0]);
+	set_position();
 	glBindVertexArray(VaoId);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
+void engine::SpriteComponent::set_position() {
+	glUniform1f(x_uniform, X);
+	glUniform1f(y_uniform, Y);
 }

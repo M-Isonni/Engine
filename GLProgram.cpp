@@ -4,6 +4,7 @@
 engine::GLProgram::GLProgram() {
 	
 	Prog = glCreateProgram();	
+	
 }
 
 engine::GLProgram::~GLProgram() {

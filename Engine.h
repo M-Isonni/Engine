@@ -4,6 +4,8 @@
 #include "Window.h"
 #include "GLProgram.h"
 #include "Context.h"
+#include "Shader.h"
+#include <iostream>
 
 
 namespace engine {
@@ -19,9 +21,11 @@ namespace engine {
 
 		engine::GLProgram* Program;
 		engine::Context* Context;
+
+		
 		
 		void Init(Window& InWindow);
-		void compile_shader(ShaderType shader_type, const char* name) const;		
+		void compile_shader(std::vector<ShaderType> shader_types, std::vector<const char*> names) const;
 
 		template<typename T>
 		void RegisterComponent() {			
