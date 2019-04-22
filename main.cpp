@@ -43,7 +43,10 @@ int main(int argc, char **argv) {
 	
 	//Adding components to actor
 	std::shared_ptr<engine::SpriteComponent> cmp = Actor->AddComponent<engine::SpriteComponent>();
+	cmp->Init(100, 100);
+	cmp->SetScale(1, 1);
 	std::shared_ptr<engine::SpriteComponent> cmp2 = Actor2->AddComponent<engine::SpriteComponent>();
+	cmp2->SetScale(0.5, 0.2);
 	
 	int running = 1;
 	Window.SetClearColor(0, 0, 0);
@@ -53,10 +56,10 @@ int main(int argc, char **argv) {
 	while (running)
 	{
 		//moving actors
-		Actor->GetComponent<engine::SpriteComponent>()->X += 0.01;
+		/*Actor->GetComponent<engine::SpriteComponent>()->X += 0.01;
 		Actor->GetComponent<engine::SpriteComponent>()->Y += 0.01;
 		Actor2->GetComponent<engine::SpriteComponent>()->X -= 0.01;
-		Actor2->GetComponent<engine::SpriteComponent>()->Y += 0.01;
+		Actor2->GetComponent<engine::SpriteComponent>()->Y += 0.01;*/
 
 		Window.ClearWindow();
 		running = Window.DequeueEvent();

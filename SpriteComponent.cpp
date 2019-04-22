@@ -28,15 +28,30 @@ engine::SpriteComponent::SpriteComponent()
 
 	x_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "x_variable");
 	y_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "y_variable");
+	scale_x_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "scaleX");
+	scale_y_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "scaleY");
+	
 }
 
 engine::SpriteComponent::~SpriteComponent() {
 	delete(vao);
 }
 
+void engine::SpriteComponent::Init(int posX, int posY)
+{
+	float positionX = posX;
+	float positionY = posY;
+	float render_pos_x = ((float)(2 * positionX / 800) - 1);
+	float render_pos_y = ((float)(2 * (600 - positionY) / 600) - 1);
+
+	this->X = render_pos_x;
+	this->Y = render_pos_y;	
+}
+
 void engine::SpriteComponent::Tick(float deltaTime) {
 	//printf("%d", *vao->Vbos[0]);
 	set_position();
+	set_scale();
 	glBindVertexArray(VaoId);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 }
@@ -44,4 +59,15 @@ void engine::SpriteComponent::Tick(float deltaTime) {
 void engine::SpriteComponent::set_position() {
 	glUniform1f(x_uniform, X);
 	glUniform1f(y_uniform, Y);
+}
+
+//multiplies the width and height of the sprite
+void engine::SpriteComponent::SetScale(float scaleX, float scaleY) {
+	this->width = scaleX;
+	this->height = scaleY;	
+}
+
+void engine::SpriteComponent::set_scale() {
+	glUniform1f(scale_x_uniform, width);
+	glUniform1f(scale_y_uniform, height);
 }
