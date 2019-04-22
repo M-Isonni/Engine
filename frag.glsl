@@ -1,8 +1,9 @@
 #version 410 core
 
+in vec4 out_color;
 out vec4 color;
 
 
 void main(){
-    color=vec4(1,0,0,1);
+    color=out_color;
 }

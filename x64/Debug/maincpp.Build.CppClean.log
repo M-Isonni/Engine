@@ -6,7 +6,6 @@ c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\vao.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\shader.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\spritecomponent.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\engine.obj
-c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\main.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\inputmanager.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\glprogram.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\gamemanager.obj
@@ -14,13 +13,6 @@ c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\enemy.o
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\context.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\component.obj
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\actor.obj
-c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\glad.obj
-c:\users\massimo\documents\visualstudioprojects\engine\x64\debug\maincpp.exe
-c:\users\massimo\documents\visualstudioprojects\engine\x64\debug\maincpp.ilk
-c:\users\massimo\documents\visualstudioprojects\engine\x64\debug\maincpp.pdb
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\maincpp.tlog\cl.command.1.tlog
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\maincpp.tlog\cl.read.1.tlog
 c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\maincpp.tlog\cl.write.1.tlog
-c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\maincpp.tlog\link.command.1.tlog
-c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\maincpp.tlog\link.read.1.tlog
-c:\users\massimo\documents\visualstudioprojects\engine\maincpp\x64\debug\maincpp.tlog\link.write.1.tlog

@@ -2,7 +2,7 @@
 #include "World.h"
 
 engine::Actor::Actor() {
-		
+	
 }
 engine::Actor::~Actor() {
 

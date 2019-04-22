@@ -9,8 +9,7 @@ engine::SpriteComponent::SpriteComponent()
 	Enabled = true;	
 	vao = new engine::Vao();
 	VaoId = vao->VaoId;
-	std::shared_ptr<unsigned int> vbo = vao->Vbo();
-	//printf("%d", *vao->Vbos[0]);
+	std::shared_ptr<unsigned int> vbo = vao->Vbo();	
 
 	float quad[] = {
 		0.1,0.1,0,
@@ -30,6 +29,9 @@ engine::SpriteComponent::SpriteComponent()
 	y_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "y_variable");
 	scale_x_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "scaleX");
 	scale_y_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "scaleY");
+	color_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "color");
+
+	color = Color{ 1,1,1,1 };
 	
 }
 
@@ -52,8 +54,17 @@ void engine::SpriteComponent::Tick(float deltaTime) {
 	//printf("%d", *vao->Vbos[0]);
 	set_position();
 	set_scale();
+	set_color();
 	glBindVertexArray(VaoId);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
+void engine::SpriteComponent::SetColor(float r, float g, float b, float a)
+{
+	color.r = r;
+	color.g = g;
+	color.b = b;
+	color.a = a;
 }
 
 void engine::SpriteComponent::set_position() {
@@ -70,4 +81,8 @@ void engine::SpriteComponent::SetScale(float scaleX, float scaleY) {
 void engine::SpriteComponent::set_scale() {
 	glUniform1f(scale_x_uniform, width);
 	glUniform1f(scale_y_uniform, height);
+}
+
+void engine::SpriteComponent::set_color() {
+	glUniform4f(color_uniform, color.r, color.g, color.b, color.a);
 }

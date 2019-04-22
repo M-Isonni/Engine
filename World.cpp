@@ -15,6 +15,6 @@ engine::World::~World() {
 	
 }
 
-void engine::World::AddActor(std::shared_ptr<engine::Actor> InActor) {
-	Actors.push_back(InActor);
+void engine::World::InternalAddActor(std::shared_ptr<engine::Actor> InActor) {
+	this->Actors.push_back(InActor);
 }

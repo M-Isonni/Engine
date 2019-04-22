@@ -14,7 +14,19 @@ namespace engine {
 		std::vector<std::shared_ptr<engine::Actor>> Actors;
 		~World();	
 		World(World& InWorld) = delete;
-		void AddActor(std::shared_ptr<engine::Actor> InActor);
+
+		template<typename T>
+		std::shared_ptr<T> AddActor() {
+			std::shared_ptr<T> NewActor = std::make_shared<T>();
+			InternalAddActor(NewActor);
+			return NewActor;
+		}
+
+	private:
+		void InternalAddActor(std::shared_ptr<Actor> Actor);
+		//void AddActor(std::shared_ptr<engine::Actor> InActor);
+
+		
 	
 	};
 }
