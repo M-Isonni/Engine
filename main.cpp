@@ -53,6 +53,8 @@ int main(int argc, char **argv) {
 	//std::shared_ptr<engine::SpriteComponent> cmp2 = Actor2->AddComponent<engine::SpriteComponent>();
 	//cmp2->SetScale(0.5, 0.2);
 
+
+	//in order to create Actors Create them throught the world
 	std::shared_ptr<Enemy> e = World.AddActor<Enemy>();
 	e->SetPosition(100, 100);
 	e->SetScale(2, 2);
