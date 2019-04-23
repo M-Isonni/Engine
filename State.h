@@ -1,4 +1,7 @@
 #pragma once
+#include <memory>
+#include "StateMachine.h"
+
 
 
 //only to be used to inherit and create new states for state machine
@@ -6,8 +9,10 @@
 class State
 {
 public:
-	State();
+	State(StateMachine& owning_machine);
 	virtual ~State();
 	virtual void Update();
 	virtual void OnExitState();
+	std::shared_ptr<StateMachine> owner;
+protected:
 };

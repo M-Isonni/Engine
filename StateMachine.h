@@ -1,22 +1,23 @@
 #pragma once
 #include <vector>
 #include <map>
+#include "Actor.h"
 
 enum E_State { IDLE, PATROL, CHASE };
 class State;
 class Actor;
 class StateMachine {
 public:
-	StateMachine();
+	StateMachine(engine::Actor& InOwner);
 	~StateMachine();
-	StateMachine(StateMachine& InMachine) = delete;
-	Actor* owner;
 	
+	engine::Actor* owner;	
 	State* current_state;
-	std::vector<std::map<E_State, State>*> states;
-
+	std::vector<std::pair<E_State, State*>*> states;
 	void Update();
-	void Init(Actor& InOwner);
+	//void Init(Actor& InOwner);
 	void ChangeState(E_State new_state);
-	void RegisterState(std::map<E_State, State>& InState);
+	void RegisterState(std::pair<E_State, State*>* InState);
+
+	engine::Actor& GetOwner();
 };

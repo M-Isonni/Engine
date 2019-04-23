@@ -1,22 +1,33 @@
 #include "StateMachine.h"
 #include "State.h"
 
-StateMachine::StateMachine()
+StateMachine::StateMachine(engine::Actor& InOwner)
 {
-	states = std::vector<std::map<E_State, State>*>();
+	states = std::vector<std::pair<E_State, State*>*>();
 	current_state = NULL;
-}
-
-void StateMachine::Init(Actor& InOwner) {
 	owner = &InOwner;
 }
 
+//void StateMachine::Init() {
+//	
+//}
+
 StateMachine::~StateMachine()
 {
+	delete(current_state);
+	/*for (auto s : states) {
+		delete(s);
+	}*/
 }
 
-void StateMachine::RegisterState(std::map<E_State, State>& InState) {
-	states.push_back(&InState);
+void StateMachine::RegisterState(std::pair<E_State, State*>* InState) {
+	states.push_back(InState);
+	InState->second->owner = std::make_shared<StateMachine>(*this);
+}
+
+engine::Actor& StateMachine::GetOwner()
+{
+	return *owner;
 }
 
 void StateMachine::ChangeState(E_State new_state) {
@@ -24,8 +35,8 @@ void StateMachine::ChangeState(E_State new_state) {
 		current_state->OnExitState();
 	}
 	for (auto s : states) {
-		if (s->count(new_state)) {
-			current_state = &s->at(new_state);
+		if (s->first==new_state) {
+			current_state = s->second;
 		}
 	}
 }

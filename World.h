@@ -24,10 +24,7 @@ namespace engine {
 		}
 
 	private:
-		void InternalAddActor(std::shared_ptr<Actor> Actor);
-		//void AddActor(std::shared_ptr<engine::Actor> InActor);
-
-		
+		void InternalAddActor(std::shared_ptr<Actor> Actor);			
 	
 	};
 }

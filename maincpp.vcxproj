@@ -136,6 +136,7 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="engine.cpp" />
+    <ClCompile Include="MoveState.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="State.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GLProgram.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="MoveState.h" />
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Private.h" />
     <ClInclude Include="Shader.h" />

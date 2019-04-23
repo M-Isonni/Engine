@@ -1,7 +1,8 @@
 #include "State.h"
 
-State::State()
+State::State(StateMachine& InMachine)
 {
+	owner = std::make_shared<StateMachine>(InMachine);
 }
 
 State::~State()
