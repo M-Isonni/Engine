@@ -1,4 +1,24 @@
-﻿  Enemy.cpp
+﻿  Actor.cpp
+  Component.cpp
+  Context.cpp
+  Enemy.cpp
 C:\Users\Massimo\Documents\VisualStudioProjects\Engine\maincpp\Enemy.cpp(15): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\Massimo\Documents\VisualStudioProjects\Engine\maincpp\Enemy.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  GameManager.cpp
+  GLProgram.cpp
+  InputManager.cpp
+  main.cpp
+  engine.cpp
+  SpriteComponent.cpp
+C:\Users\Massimo\Documents\VisualStudioProjects\Engine\maincpp\SpriteComponent.cpp(21): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Massimo\Documents\VisualStudioProjects\Engine\maincpp\SpriteComponent.cpp(44): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Massimo\Documents\VisualStudioProjects\Engine\maincpp\SpriteComponent.cpp(45): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Shader.cpp
+  State.cpp
+  StateMachine.cpp
+  Vao.cpp
+  Window.cpp
+  World.cpp
+  Generating Code...
+  glad.c
   maincpp.vcxproj -> C:\Users\Massimo\Documents\VisualStudioProjects\Engine\x64\Debug\maincpp.exe

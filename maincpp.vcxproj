@@ -138,6 +138,8 @@
     <ClCompile Include="engine.cpp" />
     <ClCompile Include="SpriteComponent.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="State.cpp" />
+    <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="Vao.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
@@ -154,6 +156,8 @@
     <ClInclude Include="SpriteComponent.h" />
     <ClInclude Include="Private.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="State.h" />
+    <ClInclude Include="StateMachine.h" />
     <ClInclude Include="Vao.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="World.h" />

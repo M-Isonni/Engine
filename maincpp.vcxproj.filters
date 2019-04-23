@@ -63,6 +63,12 @@
     <ClCompile Include="GameManager.cpp">
       <Filter>File di origine</Filter>
     </ClCompile>
+    <ClCompile Include="StateMachine.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>File di origine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -105,6 +111,12 @@
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="GameManager.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
   </ItemGroup>
