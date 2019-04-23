@@ -36,24 +36,6 @@ int main(int argc, char **argv) {
 	Engine.Program->UseProgram();
 	//END ATTACHING SHADER	
 
-	//Adding Actors
-	//engine::Actor Actor();
-	//std::shared_ptr<engine::Actor> Actor = std::make_shared<engine::Actor>();
-	//std::cout << "Actors " << World.Actors.size() << std::endl;
-	////engine::Actor* Actor = new engine::Actor;
-	////World.AddActor(Actor);
-	//std::shared_ptr<engine::Actor> Actor2 = std::make_shared<engine::Actor>();
-	//std::cout << "Actors " << World.Actors.size() << std::endl;
-	////World.AddActor(Actor2);
-	//std::cout << "Actors " << World.Actors.size() << std::endl;
-	////Adding components to actor
-	//std::shared_ptr<engine::SpriteComponent> cmp = Actor->AddComponent<engine::SpriteComponent>();
-	//cmp->Init(100, 100);
-	//cmp->SetScale(1, 1);
-	//std::shared_ptr<engine::SpriteComponent> cmp2 = Actor2->AddComponent<engine::SpriteComponent>();
-	//cmp2->SetScale(0.5, 0.2);
-
-
 	//in order to create Actors Create them throught the world
 	std::shared_ptr<Enemy> e = World.AddActor<Enemy>();
 	e->SetPosition(100, 100);
@@ -76,16 +58,10 @@ int main(int argc, char **argv) {
 	float delta_time = 1.0f / 60.0f;
 	while (running)
 	{
-		//moving actors
-		/*Actor->GetComponent<engine::SpriteComponent>()->X += 0.01;
-		Actor->GetComponent<engine::SpriteComponent>()->Y += 0.01;
-		Actor2->GetComponent<engine::SpriteComponent>()->X -= 0.01;
-		Actor2->GetComponent<engine::SpriteComponent>()->Y += 0.01;*/
-
+		
 		Window.ClearWindow();
 		running = Window.DequeueEvent();
 
-		
 		//component Ticks
 		Manager.Tick(delta_time);
 

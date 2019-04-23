@@ -13,6 +13,7 @@ MoveState::~MoveState()
 
 void MoveState::Update()
 {
+	owner->owner->GetComponent<engine::SpriteComponent>()->X += 0.01;
 	std::cout << "updating move state" << std::endl;
 }
 
