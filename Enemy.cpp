@@ -12,7 +12,8 @@ Enemy::Enemy() : engine::Actor::Actor() {
 	machine->current_state = machine->states[0]->second;
 }
 Enemy::~Enemy() {	
-
+	delete(machine);
+	delete(state);
 }
 
 void Enemy::Tick(float DeltaTime) {
