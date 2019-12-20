@@ -24,7 +24,7 @@ engine::SpriteComponent::SpriteComponent()
 	glBufferData(GL_ARRAY_BUFFER, 6 * 3 * sizeof(float), quad, GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);	
-
+	
 	x_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "x_variable");
 	y_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "y_variable");
 	scale_x_uniform = glGetUniformLocation(engine::Engine::Get().Program->GetProgram(), "scaleX");
@@ -38,7 +38,11 @@ engine::SpriteComponent::SpriteComponent()
 engine::SpriteComponent::~SpriteComponent() {
 	delete vao;
 }
-
+void engine::SpriteComponent::BeginPlay()
+{
+	std::cout<<"BeginPlay"<<std::endl;
+	SetRelativeScale(1,1,1);
+}
 void engine::SpriteComponent::Init(int posX, int posY)
 {
 	float positionX = posX;
@@ -46,18 +50,24 @@ void engine::SpriteComponent::Init(int posX, int posY)
 	float render_pos_x = ((float)(2 * positionX / 800) - 1);
 	float render_pos_y = ((float)(2 * (600 - positionY) / 600) - 1);
 
-	this->X = render_pos_x;
-	this->Y = render_pos_y;	
+	this->transform.position.X = render_pos_x;
+	this->transform.position.Y = render_pos_y;	
 	std::cout<<"\nX: "<<positionX<<" Y: "<<positionY<<"\n";
+	std::cout<<"\nX: "<<transform.position.X <<" Y: "<<transform.position.X <<"\n";
 }
 
 void engine::SpriteComponent::Tick(float deltaTime) {
 	//printf("%d", *vao->Vbos[0]);
-	set_position();
-	set_scale();
-	set_color();
-	glBindVertexArray(VaoId);
-	glDrawArrays(GL_TRIANGLES, 0, 6);
+	if(Enabled)
+	{
+	//std::cout<<"\nScaleX: "<<transform.scale.X <<"Scale Y: "<<transform.scale.Y <<"\n";
+
+		set_position();
+		set_scale();
+		set_color();
+		glBindVertexArray(VaoId);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
+	}
 }
 
 void engine::SpriteComponent::SetColor(float r, float g, float b, float a)
@@ -69,21 +79,21 @@ void engine::SpriteComponent::SetColor(float r, float g, float b, float a)
 }
 
 void engine::SpriteComponent::set_position() {
-	glUniform1f(x_uniform, X);
-	glUniform1f(y_uniform, Y);
-}
-
-//multiplies the width and height of the sprite
-void engine::SpriteComponent::SetScale(float scaleX, float scaleY) {
-	this->width = scaleX;
-	this->height = scaleY;	
+	glUniform1f(x_uniform, transform.position.X);
+	glUniform1f(y_uniform, transform.position.Y);
 }
 
 void engine::SpriteComponent::set_scale() {
-	glUniform1f(scale_x_uniform, width);
-	glUniform1f(scale_y_uniform, height);
+	glUniform1f(scale_x_uniform, transform.scale.X);
+	glUniform1f(scale_y_uniform, transform.scale.Y);
 }
 
 void engine::SpriteComponent::set_color() {
 	glUniform4f(color_uniform, color.r, color.g, color.b, color.a);
+}
+
+void engine::SpriteComponent::UpdatePos()
+{
+	engine::Component::UpdatePos();
+	Init(transform.position.X,transform.position.Y);
 }

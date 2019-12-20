@@ -28,15 +28,15 @@ void engine::PhysicsMgr::AddCollider(engine::Collider in_cmp)
 
 bool engine::PhysicsMgr::AABBBox2DCollision(std::shared_ptr<engine::BoxCollider> a, std::shared_ptr<engine::BoxCollider> b)
 {
-    float top_a = a->Y - a->height * 0.5f;
-    float bottom_a = a->Y + a->height * 0.5f;
-    float left_a = a->X - a->width * 0.5f;
-    float right_a = a->X + a->width * 0.5f;
+    float top_a = a->transform.position.Y - a->transform.scale.Y * 0.5f;
+    float bottom_a = a->transform.position.Y + a->transform.scale.Y * 0.5f;
+    float left_a = a->transform.position.X - a->transform.scale.X  * 0.5f;
+    float right_a = a->transform.position.X + a->transform.scale.X  * 0.5f;
 
-    float top_b = b->Y - b->height * 0.5f;
-    float bottom_b = b->Y + b->height * 0.5f;
-    float left_b = b->X - b->width * 0.5f;
-    float right_b = b->X + b->width * 0.5f;
+    float top_b = b->transform.position.Y - b->transform.scale.Y * 0.5f;
+    float bottom_b = b->transform.position.Y + b->transform.scale.Y * 0.5f;
+    float left_b = b->transform.position.X - b->transform.scale.X * 0.5f;
+    float right_b = b->transform.position.X + b->transform.scale.X  * 0.5f;
 
     bool y_true;
     bool x_true;

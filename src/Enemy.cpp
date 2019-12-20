@@ -5,6 +5,7 @@
 
 Enemy::Enemy() : engine::Actor::Actor() {	
 	Sprite = this->AddComponent<engine::SpriteComponent>();
+	BoxCollider = this->AddComponent<engine::BoxCollider>();
 	std::cout <<"INComp" << this->Components.size() << std::endl;	
 	machine = new StateMachine(*this);
 	state = new MoveState(*machine);
@@ -22,10 +23,10 @@ void Enemy::Tick(float DeltaTime) {
 	machine->Update();	
 }
 
-void Enemy::SetPosition(float x, float y) {
-	Sprite->Init(x, y);
+void Enemy::BeginPlay()
+{
+	Actor::BeginPlay();
+	SetPosition(0,0,0);
+	SetScale(1,1,1);
 }
 
-void Enemy::SetScale(float x, float y) {
-	Sprite->SetScale(x, y);
-}

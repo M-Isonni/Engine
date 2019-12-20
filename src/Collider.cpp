@@ -1,8 +1,11 @@
 #include "Collider.h"
+#include "Actor.h"
 
+engine::Collider::Collider()
+{   
+    Enabled = true;    
+}
 
-void engine::Collider::SetPosition(float x, float y)
-{
-    X = x;
-    Y = y;
+void engine::Collider::Tick(float DeltaTime)
+{    
 }

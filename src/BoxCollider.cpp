@@ -1,6 +1,8 @@
 #include "BoxCollider.h"
 #include "PhysicsMgr.h"
 
+unsigned int engine::BoxCollider::Type = 0;
+
 engine::BoxCollider::BoxCollider()
 {    
     engine::PhysicsMgr::Get().AddCollider(*this);
@@ -11,13 +13,6 @@ engine::BoxCollider::~BoxCollider()
 {
 
 }
-
-void engine::BoxCollider::SetScale(float width, float height)
-{
-    this->width = width;
-    this->height = height;
-}
-
 void engine::BoxCollider::OnCollision(std::shared_ptr<Collider> other_collider)
 {
     //do stuff

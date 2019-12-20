@@ -10,6 +10,7 @@ namespace engine {
 	public:		
 		static GameManager& Get();
 		~GameManager();		
-		void Tick(float DeltaTime);		
+		void Tick(float DeltaTime);	
+		void BeginPlay();	
 	};
 }

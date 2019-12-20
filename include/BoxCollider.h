@@ -7,13 +7,8 @@ class BoxCollider : public Collider
 {
 public:
     BoxCollider();
-    ~BoxCollider();    
-    
-    void SetScale(float width, float height);
+    ~BoxCollider(); 
+    static unsigned int Type; 
     void OnCollision(std::shared_ptr<Collider> other_collider) override;
-
-public:        
-		float width = 1;
-		float height = 1;        
 };
 } // namespace engine

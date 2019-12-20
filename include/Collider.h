@@ -9,15 +9,11 @@ class Collider : public Component
 {
 public:
     virtual ~Collider() = default;
-    ColliderType Coll_type;
-    virtual void SetPosition(float X, float Y);
+    ColliderType Coll_type;    
     virtual void OnCollision(std::shared_ptr<Collider> other_collider){};
-
+    virtual void Tick(float DeltaTime) override;
+    
 protected:
-   Collider(){X = 0; Y = 0;};
-
-public:
-    float X;
-    float Y;
+    Collider();  
 };
 } // namespace engine
