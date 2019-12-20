@@ -1,4 +1,0 @@
-﻿main.obj : error LNK2019: riferimento al simbolo esterno _SDL_Init non risolto nella funzione _main
-main.obj : error LNK2019: riferimento al simbolo esterno _SDL_Quit non risolto nella funzione _main
-C:\Users\massi\Documents\SDL2-2.0.9\lib\x64\SDL2.lib : warning LNK4272: il tipo 'x64' del computer della libreria è in conflitto con il tipo 'x86' del computer di destinazione
-C:\Users\massi\source\repos\maincpp\Debug\maincpp.exe : fatal error LNK1120: 2 esterni non risolti
