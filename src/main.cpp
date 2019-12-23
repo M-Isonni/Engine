@@ -6,9 +6,22 @@
 #include "World.h"
 #include "GameManager.h"
 #include "Enemy.h"
+#include "event.h"
+
+void p(std::string str)
+{
+	std::cout<<(str);
+}
 
 
 int main(int argc, char **argv) {
+
+	typedef void my_del(std::string str);
+	my_del* func = p;
+
+	Event<my_del*> event;
+	event.AddListener(func);
+	event.Call(std::string("ciao"));
 
 	engine::Engine& Engine= engine::Engine::Get();
 	engine::World& World = engine::World::Get();	

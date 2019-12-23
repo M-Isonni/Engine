@@ -5,7 +5,7 @@ build/./src/main.cpp.o: src/main.cpp include/Engine.h include/Component.h \
  include/SpriteComponent.h include/Vao.h include/World.h \
  include/GameManager.h include/Enemy.h include/StateMachine.h \
  include/MoveState.h include/State.h include/BoxCollider.h \
- include/Collider.h
+ include/Collider.h include/event.h
 
 include/Engine.h:
 
@@ -48,3 +48,5 @@ include/State.h:
 include/BoxCollider.h:
 
 include/Collider.h:
+
+include/event.h:
