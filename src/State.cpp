@@ -9,7 +9,7 @@ State::~State()
 {
 }
 
-void State::Update() {
+void State::Update(float DeltaTime) {
 
 }
 

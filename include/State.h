@@ -11,7 +11,7 @@ class State
 public:
 	State(StateMachine& owning_machine);
 	virtual ~State();
-	virtual void Update();
+	virtual void Update(float DeltaTime);
 	virtual void OnExitState();
 	std::shared_ptr<StateMachine> owner;
 protected:

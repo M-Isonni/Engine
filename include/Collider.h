@@ -14,8 +14,8 @@ public:
     virtual ~Collider() = default;
     ColliderType Coll_type;
     virtual void Tick(float DeltaTime) override;
-    typedef void (Actor::*Collision)(std::shared_ptr<class engine::Collider> other_collider);
-    Event<Collision*> OnCollision;
+        
+    Event<engine::Actor*, void(const Actor*, std::shared_ptr<Collider>)> OnCollision;
 
 protected:    
     Collider();

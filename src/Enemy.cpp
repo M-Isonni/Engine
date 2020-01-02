@@ -1,12 +1,14 @@
 #pragma once
 #include "Enemy.h"
 #include "World.h"
+#include "PhysicsMgr.h"
 
 
 Enemy::Enemy() : engine::Actor::Actor() {	
 	Sprite = this->AddComponent<engine::SpriteComponent>();
-	BoxCollider = this->AddComponent<engine::BoxCollider>();	
-	BoxCollider->OnCollision.AddListener(this->OnCollision);
+	BoxCollider = this->AddComponent<engine::BoxCollider>();
+	BoxCollider->OnCollision.AddListener(&Enemy::OnCollision);
+	engine::PhysicsMgr::Get().AddCollider(BoxCollider);
 	std::cout <<"INComp" << this->Components.size() << std::endl;	
 	machine = new StateMachine(*this);
 	state = new MoveState(*machine);
@@ -21,7 +23,7 @@ Enemy::~Enemy() {
 
 void Enemy::Tick(float DeltaTime) {
 	Actor::Tick(DeltaTime);
-	machine->Update();	
+	machine->Update(DeltaTime);	
 }
 
 void Enemy::BeginPlay()
@@ -31,7 +33,7 @@ void Enemy::BeginPlay()
 	SetScale(1,1,1);
 }
 
-void Enemy::OnCollision(std::shared_ptr<engine::Collider> other_collider)
+void Enemy::OnCollision(const engine::Actor* owner, std::shared_ptr<engine::Collider> other_collider)
 {
 	std::cout<<"Collision!\n";
 }

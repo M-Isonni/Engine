@@ -3,7 +3,7 @@
 #include "Actor.h"
 #include "StateMachine.h"
 
-MoveState::MoveState(StateMachine& InMachine) : State(InMachine)
+MoveState::MoveState(StateMachine &InMachine) : State(InMachine)
 {
 }
 
@@ -11,9 +11,9 @@ MoveState::~MoveState()
 {
 }
 
-void MoveState::Update()
+void MoveState::Update(float DeltaTime)
 {
-	// owner->owner->GetComponent<engine::SpriteComponent>()->X += 0.01;
+	owner->owner->SetPosition(owner->owner->GetPosition() + direction * speed * DeltaTime);
 	// std::cout << "updating move state" << std::endl;
 }
 

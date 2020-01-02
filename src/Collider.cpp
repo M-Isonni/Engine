@@ -3,8 +3,10 @@
 
 engine::Collider::Collider()
 {   
-    Enabled = true;    
-}
+    Enabled = true;  
+    std::cout<<"COLLIDER POSITION: "<<transform.position.X<<"\n";
+}  
+
 
 void engine::Collider::Tick(float DeltaTime)
 {    

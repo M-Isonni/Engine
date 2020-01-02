@@ -14,7 +14,7 @@ public:
 	engine::Actor* owner;	
 	State* current_state;
 	std::vector<std::pair<E_State, State*>*> states;
-	void Update();
+	void Update(float DeltaTime);
 	//void Init(Actor& InOwner);
 	void ChangeState(E_State new_state);
 	void RegisterState(std::pair<E_State, State*>* InState);

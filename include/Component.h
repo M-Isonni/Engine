@@ -9,9 +9,11 @@ public:
 	Component(){};
 	virtual ~Component(){};
 	bool Enabled;
+	
 	class Actor* Owner;
-	Transform rel_transform;
-	Transform transform;
+
+	Transform rel_transform= Transform::Base();
+	Transform transform = Transform::Base();
 	
 	virtual void BeginPlay();
 	virtual void Tick(float DeltaTime);

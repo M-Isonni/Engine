@@ -16,7 +16,7 @@ private:
 public:
     static PhysicsMgr &Get();
     ~PhysicsMgr();
-    void AddCollider(class Collider collider_to_add);
+    void AddCollider(std::shared_ptr<engine::Collider> in_col);
     void Tick(float DeltaTime);
 };
 } // namespace engine

@@ -32,6 +32,15 @@ void engine::Actor::SetPosition(float x, float y, float z)
 		c->UpdatePos();
 }
 
+void engine::Actor::SetPosition(Vector3 in_vec)
+{
+	transform.position.X = in_vec.X;
+	transform.position.Y = in_vec.Y;
+	transform.position.Z = in_vec.Z;
+	for (auto c : Components)
+		c->UpdatePos();
+}
+
 void engine::Actor::SetScale(float x, float y, float z)
 {
 	transform.scale.X = x;

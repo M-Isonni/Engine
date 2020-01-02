@@ -41,6 +41,6 @@ void StateMachine::ChangeState(E_State new_state) {
 	}
 }
 
-void StateMachine::Update() {
-	current_state->Update();
+void StateMachine::Update(float DeltaTime) {
+	current_state->Update(DeltaTime);
 }

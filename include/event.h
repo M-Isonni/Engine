@@ -1,12 +1,13 @@
 #pragma once
 #include <vector>
 #include <memory>
+#include <functional>
 
-template <class T>
+template <class G, class T>
 class Event
 {
 private:
-    std::vector<T> functions;
+    std::vector<std::function<T>> functions;
 
 public:
     Event(){};
@@ -63,12 +64,12 @@ public:
         }
     }
 
-    template <typename... Args>
-    void Call(Args... args)
+    template <typename... Args>    
+    void Call(G obj, Args... args)
     {
         for (auto f : functions)
         {
-            f(args...);
+            f(obj, args...);
         }
     }
 };

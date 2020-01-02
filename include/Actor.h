@@ -19,7 +19,10 @@ public:
 	virtual void Tick(float DeltaTime);
 
 	virtual void SetPosition(float x, float y,float z=0);
+	virtual void SetPosition(Vector3 new_pos);
 	virtual void SetScale(float x, float y,float z=0);
+	inline virtual Vector3 GetPosition(){return transform.position;};
+	inline virtual Vector3 GetScale(){return transform.scale;};
 
 	template <typename T>
 	std::shared_ptr<T> AddComponent()

@@ -51,9 +51,7 @@ void engine::SpriteComponent::Init(int posX, int posY)
 	float render_pos_y = ((float)(2 * (600 - positionY) / 600) - 1);
 
 	this->transform.position.X = render_pos_x;
-	this->transform.position.Y = render_pos_y;	
-	std::cout<<"\nX: "<<positionX<<" Y: "<<positionY<<"\n";
-	std::cout<<"\nX: "<<transform.position.X <<" Y: "<<transform.position.X <<"\n";
+	this->transform.position.Y = render_pos_y;		
 }
 
 void engine::SpriteComponent::Tick(float deltaTime) {

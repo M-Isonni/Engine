@@ -25,7 +25,7 @@ $(BUILD_DIR)/%.s.o: %.s
 
 # c source
 $(BUILD_DIR)/%.c.o: %.c
-	$(CC) -std=c++17 $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 # c++ source
 $(BUILD_DIR)/%.cpp.o: %.cpp
