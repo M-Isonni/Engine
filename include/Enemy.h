@@ -14,10 +14,11 @@ public:
 	std::shared_ptr<engine::BoxCollider> BoxCollider;		
 	StateMachine* machine;
 	MoveState* state;
+private:
+void OnCollision(std::shared_ptr<engine::Collider> other_collider);
 	
 
-protected:
-	
+protected:	
 	void Tick(float DeltaTime) override;
 	void BeginPlay() override;
 };

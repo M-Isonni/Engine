@@ -13,8 +13,3 @@ engine::BoxCollider::~BoxCollider()
 {
 
 }
-void engine::BoxCollider::OnCollision(std::shared_ptr<Collider> other_collider)
-{
-    //do stuff
-}
-

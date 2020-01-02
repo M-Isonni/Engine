@@ -67,8 +67,8 @@ void engine::PhysicsMgr::collisions_check()
                 case ColliderType::Square2D:
                     if (AABBBox2DCollision(std::dynamic_pointer_cast<engine::BoxCollider>(p_colliders[i]), std::dynamic_pointer_cast<engine::BoxCollider>(p_colliders[j])))
                     {
-                        p_colliders[i]->OnCollision(p_colliders[j]);
-                        p_colliders[j]->OnCollision(p_colliders[i]);
+                        p_colliders[i]->OnCollision.Call(p_colliders[j]);
+                        p_colliders[j]->OnCollision.Call(p_colliders[i]);
                     }
                     break;
                 case ColliderType::Circle2D:

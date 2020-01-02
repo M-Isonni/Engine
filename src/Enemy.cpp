@@ -5,7 +5,8 @@
 
 Enemy::Enemy() : engine::Actor::Actor() {	
 	Sprite = this->AddComponent<engine::SpriteComponent>();
-	BoxCollider = this->AddComponent<engine::BoxCollider>();
+	BoxCollider = this->AddComponent<engine::BoxCollider>();	
+	BoxCollider->OnCollision.AddListener(this->OnCollision);
 	std::cout <<"INComp" << this->Components.size() << std::endl;	
 	machine = new StateMachine(*this);
 	state = new MoveState(*machine);
@@ -28,5 +29,10 @@ void Enemy::BeginPlay()
 	Actor::BeginPlay();
 	SetPosition(0,0,0);
 	SetScale(1,1,1);
+}
+
+void Enemy::OnCollision(std::shared_ptr<engine::Collider> other_collider)
+{
+	std::cout<<"Collision!\n";
 }
 

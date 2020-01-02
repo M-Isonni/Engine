@@ -2,18 +2,22 @@
 #include "Component.h"
 #include <memory>
 #include "Private.h"
+#include "event.h"
 
 namespace engine
 {
 class Collider : public Component
 {
+private:
+
 public:
     virtual ~Collider() = default;
-    ColliderType Coll_type;    
-    virtual void OnCollision(std::shared_ptr<Collider> other_collider){};
+    ColliderType Coll_type;
     virtual void Tick(float DeltaTime) override;
-    
-protected:
-    Collider();  
+    typedef void (Actor::*Collision)(std::shared_ptr<class engine::Collider> other_collider);
+    Event<Collision*> OnCollision;
+
+protected:    
+    Collider();
 };
 } // namespace engine
