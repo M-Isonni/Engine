@@ -10,7 +10,7 @@ class PhysicsMgr
 private:
     PhysicsMgr();
     std::vector<std::shared_ptr<class Collider>> p_colliders;
-    bool AABBBox2DCollision(std::shared_ptr<class BoxCollider> a, std::shared_ptr<class BoxCollider> b);
+    bool AABBBox2DCollision(std::shared_ptr<class Collider> a, std::shared_ptr<class Collider> b);
     void collisions_check();
 
 public:

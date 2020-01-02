@@ -18,10 +18,12 @@ void engine::Component::Tick(float DeltaTime)
 
 void engine::Component::UpdatePos()
 {
-    std::cout<<"Updating pos:";
+    std::cout<<"old pos: "<<transform.position.X<<"\n";
     transform.position.X = Owner->transform.position.X + rel_transform.position.X;
     transform.position.Y = Owner->transform.position.Y + rel_transform.position.Y;
     transform.position.Z = Owner->transform.position.Z + rel_transform.position.Z;
+    std::cout<<"Parent pos: "<<Owner->transform.position.X<<"\n";
+    std::cout<<"Updating pos: "<<transform.position.X<<"\n";
 }
 
 void engine::Component::UpdateScale()

@@ -5,8 +5,8 @@
 
 
 Enemy::Enemy() : engine::Actor::Actor() {	
-	Sprite = this->AddComponent<engine::SpriteComponent>();
 	BoxCollider = this->AddComponent<engine::BoxCollider>();
+	Sprite = this->AddComponent<engine::SpriteComponent>();
 	BoxCollider->OnCollision.AddListener(&Enemy::OnCollision);
 	engine::PhysicsMgr::Get().AddCollider(BoxCollider);
 	std::cout <<"INComp" << this->Components.size() << std::endl;	
