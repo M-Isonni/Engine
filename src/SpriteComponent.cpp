@@ -10,6 +10,7 @@ engine::SpriteComponent::SpriteComponent()
 	vao = new engine::Vao();
 	VaoId = vao->VaoId;
 	std::shared_ptr<unsigned int> vbo = vao->Vbo();	
+	float f = 1/ratio;
 
 	float quad[] = {
 		0.1,0.1,0,
@@ -40,18 +41,19 @@ engine::SpriteComponent::~SpriteComponent() {
 }
 void engine::SpriteComponent::BeginPlay()
 {
+	Enabled = true;
 	std::cout<<"BeginPlay"<<std::endl;
 	SetRelativeScale(1,1,1);
 }
-void engine::SpriteComponent::Init(int posX, int posY)
+void engine::SpriteComponent::transpose_positions(int posX, int posY)
 {
 	float positionX = posX;
 	float positionY = posY;
 	float render_pos_x = ((float)(2 * positionX / 800) - 1);
 	float render_pos_y = ((float)(2 * (600 - positionY) / 600) - 1);
 
-	this->transform.position.X = render_pos_x;
-	this->transform.position.Y = render_pos_y;		
+	this->transform->position.X = render_pos_x;
+	this->transform->position.Y = render_pos_y;		
 }
 
 void engine::SpriteComponent::Tick(float deltaTime) {
@@ -60,7 +62,7 @@ void engine::SpriteComponent::Tick(float deltaTime) {
 	{
 	//std::cout<<"\nScaleX: "<<transform.scale.X <<"Scale Y: "<<transform.scale.Y <<"\n";
 
-		set_position();
+		//set_position();
 		set_scale();
 		set_color();
 		glBindVertexArray(VaoId);
@@ -77,13 +79,13 @@ void engine::SpriteComponent::SetColor(float r, float g, float b, float a)
 }
 
 void engine::SpriteComponent::set_position() {
-	glUniform1f(x_uniform, transform.position.X);
-	glUniform1f(y_uniform, transform.position.Y);
+	glUniform1f(x_uniform, transform->position.X);
+	glUniform1f(y_uniform, transform->position.Y);
 }
 
 void engine::SpriteComponent::set_scale() {
-	glUniform1f(scale_x_uniform, transform.scale.X);
-	glUniform1f(scale_y_uniform, transform.scale.Y);
+	glUniform1f(scale_x_uniform, transform->scale.X);
+	glUniform1f(scale_y_uniform, transform->scale.Y);
 }
 
 void engine::SpriteComponent::set_color() {
@@ -92,6 +94,8 @@ void engine::SpriteComponent::set_color() {
 
 void engine::SpriteComponent::UpdatePos()
 {
+	//std::cout<<"Updating Sprite Component pos on actor: "<<Owner->ID<<"\n";
 	engine::Component::UpdatePos();
-	Init(transform.position.X,transform.position.Y);
+	transpose_positions(transform->position.X,transform->position.Y);
+	set_position();
 }

@@ -13,7 +13,7 @@ INC_DIRS := $(shell find $(INCLUDE_DIR) -type d)
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 CPPFLAGS ?=-I include $(INC_FLAGS) -I /usr/local/include -MMD -MP
-LDFLAGS := -L /usr/local/lib -lSDL2 -ldl -lstdc++
+LDFLAGS := -L /usr/local/lib -lSDL2 -ldl -lstdc++ -lm
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $@ $(LDFLAGS)

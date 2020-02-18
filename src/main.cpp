@@ -40,14 +40,8 @@ int main(int argc, char **argv) {
 
 	//in order to create Actors Create them throught the world
 	std::shared_ptr<Enemy> e = World.AddActor<Enemy>();
-	std::shared_ptr<Enemy> e2 = World.AddActor<Enemy>();	
-	
-	std::cout <<"Actors " << World.Actors.size() << std::endl;
-	for (int i = 0; i < World.Actors.size(); i++) {
-		std::cout << "components " << World.Actors[i]->GetComponents<engine::SpriteComponent>().size() << std::endl;
-	//std::cout<<"e comp "	<<e.GetComponents<engine::SpriteComponent>().size() << std::endl;
-	}
-	
+	std::shared_ptr<Enemy> e2 = World.AddActor<Enemy>();
+
 	int running = 1;
 	Window.SetClearColor(0, 0, 0);
 
@@ -56,6 +50,8 @@ int main(int argc, char **argv) {
 	Manager.BeginPlay();
 
 	//Modifies to Actor behaviours need to occur after manager begin play is called
+	e->ID=1;
+	e2->ID=2;
 
 	e->Sprite->SetColor(1, 0, 1, 1);
 	e2->Sprite->SetColor(0, 1, 0, 1);
@@ -72,11 +68,16 @@ int main(int argc, char **argv) {
 	e2->SetPosition(400,300,0);
 	e2->SetScale(2,2,1);
 
-	
+	std::cout <<"Actors " << World.Actors.size() << std::endl;
 	
 	while (running)
 	{
-		
+	// 	for (int i = 0; i < World.Actors.size(); i++) 
+	// {
+	// 	//std::cout << "Actor " << World.Actors[i]->ID<<" components: "<<World.Actors[i]->get_components_num() << std::endl;
+	// 	std::cout<< "Actor: "<<World.Actors[i]->ID<< " scale: "<<World.Actors[i]->GetComponent<engine::SpriteComponent>()->transform->scale.X<<", "
+	// 	<<World.Actors[i]->GetComponent<engine::SpriteComponent>()->transform->scale.Y<<".\n";
+	// }
 		Window.ClearWindow();
 		running = Window.DequeueEvent();
 		PhysicsMgr.Tick(delta_time);

@@ -4,7 +4,7 @@ namespace engine {
 	class Window {
 	public:
 		Window(int width, int height);
-		~Window();
+		~Window();	
 
 		Window(const Window& rhs) = delete;
 

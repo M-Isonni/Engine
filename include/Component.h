@@ -1,19 +1,21 @@
 #pragma once
 #include "Transform.h"
+#include <iostream>
 
 namespace engine {
 
 class Component {
 
 public:
-	Component(){};
-	virtual ~Component(){};
+	Component();
+	virtual ~Component(){ delete rel_transform; delete transform;};
 	bool Enabled;
 	
 	class Actor* Owner;
 
-	Transform rel_transform= Transform::Base();
-	Transform transform = Transform::Base();
+	Transform* rel_transform;	
+	Transform* transform;
+	
 	
 	virtual void BeginPlay();
 	virtual void Tick(float DeltaTime);

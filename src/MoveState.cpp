@@ -13,6 +13,7 @@ MoveState::~MoveState()
 
 void MoveState::Update(float DeltaTime)
 {
+	
 	owner->owner->SetPosition(owner->owner->GetPosition() + direction * speed * DeltaTime);
 	// std::cout << "updating move state" << std::endl;
 }

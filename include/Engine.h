@@ -19,6 +19,9 @@ namespace engine {
 		static Engine& Get();
 		~Engine();	
 
+		int window_width;
+		int window_height;
+
 		engine::GLProgram* Program;
 		engine::Context* Context;
 

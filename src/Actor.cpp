@@ -25,27 +25,37 @@ void engine::Actor::Tick(float DeltaTime)
 
 void engine::Actor::SetPosition(float x, float y, float z)
 {
-	transform.position.X = x;
-	transform.position.Y = y;
-	transform.position.Z = z;
-	for (auto c : Components)
+	this->transform->position.X = x;
+	this->transform->position.Y = y;
+	this->transform->position.Z = z;
+	int i = 0;
+	for (auto c : this->Components)
+	{
+		i++;
+		//std::cout<<"Component "<<i<<" from actor "<<ID<<" updating...\n";
 		c->UpdatePos();
+	}
 }
 
 void engine::Actor::SetPosition(Vector3 in_vec)
 {
-	transform.position.X = in_vec.X;
-	transform.position.Y = in_vec.Y;
-	transform.position.Z = in_vec.Z;
-	for (auto c : Components)
+	this->transform->position.X = in_vec.X;
+	this->transform->position.Y = in_vec.Y;
+	this->transform->position.Z = in_vec.Z;
+	int i = 0;
+	for (auto c : this->Components)
+	{
+		i++;
+		//std::cout<<"Component "<<i<<" from actor "<<ID<<" updating...\n";
 		c->UpdatePos();
+	}
 }
 
 void engine::Actor::SetScale(float x, float y, float z)
 {
-	transform.scale.X = x;
-	transform.scale.Y = y;
-	transform.scale.Z = z;	
+	transform->scale.X = x;
+	transform->scale.Y = y;
+	transform->scale.Z = z;	
 	for (auto c : Components)
 		c->UpdateScale();
 }

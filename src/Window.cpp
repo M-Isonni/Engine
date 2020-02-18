@@ -1,9 +1,12 @@
 #include "InputManager.h"
 #include "Window.h"
+#include "Engine.h"
 
 
 engine::Window::Window(int width, int height) {
 	Handle = SDL_CreateWindow("window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_OPENGL);
+	engine::Engine::Get().window_width = width;
+	engine::Engine::Get().window_height = height;
 }
 
 engine::Window::~Window() {

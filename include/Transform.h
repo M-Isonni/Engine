@@ -28,6 +28,17 @@ public:
         out.Z = Z * mul;
         return out;
     }
+    Vector3 operator/(float div)
+    {
+        Vector3 out;
+        out.X = X / div;
+        out.Y = Y / div;
+        out.Z = Z / div;
+        return out;
+    }
+
+    void normalize(Vector3& invec);
+    float magnitude(Vector3 invec);
 
     static Vector3 Zero()
     {
@@ -46,8 +57,8 @@ public:
     Vector3 scale;
     Vector3 rotation;
 
-    static Transform Base()
+    static Transform* Base()
     {
-        return Transform(Vector3::Zero(),Vector3(1,1,1),Vector3::Zero());
+        return new Transform(Vector3::Zero(),Vector3(1,1,1),Vector3::Zero());
     }
 };

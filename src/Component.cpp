@@ -2,14 +2,21 @@
 #include "Component.h"
 #include "Actor.h"
 
+engine::Component::Component()
+{
+    std::cout<<"Creating Component\n";
+    rel_transform = Transform::Base();
+    transform = Transform::Base();
+}
+
 void engine::Component::BeginPlay()
 {
-    transform.position.X = Owner->transform.position.X + rel_transform.position.X;
-    transform.position.Y = Owner->transform.position.Y + rel_transform.position.Y;
-    transform.position.Z = Owner->transform.position.Z + rel_transform.position.Z;
-    transform.scale.X = Owner->transform.scale.X * rel_transform.scale.X;
-    transform.scale.Y = Owner->transform.scale.Y * rel_transform.scale.Y;
-    transform.scale.Z = Owner->transform.scale.Z * rel_transform.scale.Z;
+    this->transform->position.X = Owner->GetPosition().X + rel_transform->position.X;
+    this->transform->position.Y = Owner->GetPosition().Y + rel_transform->position.Y;
+    this->transform->position.Z = Owner->GetPosition().Z + rel_transform->position.Z;
+    this->transform->scale.X = Owner->GetScale().X * rel_transform->scale.X;
+    this->transform->scale.Y = Owner->GetScale().Y * rel_transform->scale.Y;
+    this->transform->scale.Z = Owner->GetScale().Z * rel_transform->scale.Z;
 }
 
 void engine::Component::Tick(float DeltaTime)
@@ -18,35 +25,36 @@ void engine::Component::Tick(float DeltaTime)
 
 void engine::Component::UpdatePos()
 {
-    std::cout<<"old pos: "<<transform.position.X<<"\n";
-    transform.position.X = Owner->transform.position.X + rel_transform.position.X;
-    transform.position.Y = Owner->transform.position.Y + rel_transform.position.Y;
-    transform.position.Z = Owner->transform.position.Z + rel_transform.position.Z;
-    std::cout<<"Parent pos: "<<Owner->transform.position.X<<"\n";
-    std::cout<<"Updating pos: "<<transform.position.X<<"\n";
+    //std::cout<<"old pos: "<<transform.position.X<<"\n";
+    this->transform->position.X = Owner->GetPosition().X + rel_transform->position.X;
+    this->transform->position.Y = Owner->GetPosition().Y + rel_transform->position.Y;
+    this->transform->position.Z = Owner->GetPosition().Z + rel_transform->position.Z;
+    // std::cout<<"Parent pos: "<<Owner->transform.position.X<<"\n";
+    // std::cout<<"Relative pos: "<<rel_transform.position.X<<"\n";
+    // std::cout<<"Updating pos: "<<transform.position.X<<"\n";
 }
 
 void engine::Component::UpdateScale()
 {
-    transform.scale.X = Owner->transform.scale.X * rel_transform.scale.X;
-    transform.scale.Y = Owner->transform.scale.Y * rel_transform.scale.Y;
-    transform.scale.Z = Owner->transform.scale.Z * rel_transform.scale.Z;
+    this->transform->scale.X = Owner->GetScale().X * rel_transform->scale.X;
+    this->transform->scale.Y = Owner->GetScale().Y * rel_transform->scale.Y;
+    this->transform->scale.Z = Owner->GetScale().Z * rel_transform->scale.Z;
 }
 
 void engine::Component::SetRelativeLocation(float x, float y, float z)
 {
-    rel_transform.position.X = x;
-    rel_transform.position.Y = y;
-    rel_transform.position.Z = z;
+    this->rel_transform->position.X = x;
+    this->rel_transform->position.Y = y;
+    this->rel_transform->position.Z = z;
 
     UpdatePos();
 }
 
 void engine::Component::SetRelativeScale(float x, float y, float z)
 {
-    rel_transform.scale.X = x;
-    rel_transform.scale.Y = y;
-    rel_transform.scale.Z = z;
+    this->rel_transform->scale.X = x;
+    this->rel_transform->scale.Y = y;
+    this->rel_transform->scale.Z = z;
 
     UpdateScale();
 }

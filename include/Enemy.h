@@ -9,7 +9,7 @@ class Enemy : public engine::Actor
 {
 public:
 	Enemy();
-	~Enemy();
+	virtual ~Enemy()override;
 	std::shared_ptr<engine::SpriteComponent> Sprite;
 	std::shared_ptr<engine::BoxCollider> BoxCollider;
 	StateMachine *machine;
