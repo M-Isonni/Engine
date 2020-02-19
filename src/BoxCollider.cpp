@@ -36,7 +36,7 @@ void engine::BoxCollider::UpdateScale()
 
 void engine::BoxCollider::BeginPlay()
 {
-    Enabled = true;
+    SetEnabled(true);
     UpdatePos();
     collider_width = Owner->GetComponent<engine::SpriteComponent>()->get_2D_width();
     collider_height = Owner->GetComponent<engine::SpriteComponent>()->get_2D_height();

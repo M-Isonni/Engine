@@ -25,7 +25,7 @@ void Enemy::BeginPlay()
 	BoxCollider = this->AddComponent<engine::BoxCollider>(this);
 	Sprite = this->AddComponent<engine::SpriteComponent>(this);
 	BoxCollider->OnCollision.AddListener(&Enemy::OnCollision);
-	engine::PhysicsMgr::Get().AddCollider(BoxCollider);
+	//engine::PhysicsMgr::Get().AddCollider(BoxCollider);
 	machine = new StateMachine(*this); 
 	state = new MoveState(*machine);
 	std::pair<E_State, State*>* pair = new std::pair<E_State, State*>(IDLE, state);
@@ -37,5 +37,6 @@ void Enemy::BeginPlay()
 void Enemy::OnCollision(const engine::Actor* owner, std::shared_ptr<engine::Collider> other_collider)
 {
 	std::cout<<"Collision from actor: "<<owner->ID<<"\n";
+	owner->GetComponent<engine::BoxCollider>()->SetEnabled(false);
 }
 
