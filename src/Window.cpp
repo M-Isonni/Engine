@@ -9,7 +9,7 @@ engine::Window::Window(int width, int height) {
 	engine::Engine::Get().window_height = height;
 }
 
-engine::Window::~Window() {
+engine::Window::~Window() {	
 	SDL_DestroyWindow(reinterpret_cast<SDL_Window *>(Handle));
 }
 

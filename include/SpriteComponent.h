@@ -15,6 +15,8 @@ struct Color
 	float a;
 };
 
+static engine::Vao* sprite_vao = nullptr;
+
 namespace engine
 {
 class SpriteComponent : public Component
@@ -22,8 +24,8 @@ class SpriteComponent : public Component
 public:
 	SpriteComponent();
 	~SpriteComponent();
-	engine::Vao *vao;
-	int VaoId;
+	engine::Vao* _vao_ptr;
+	//static int VaoCounter = 0;
 	static unsigned int Type;
 	Color color;		
 	void transpose_positions(int posX, int posY);
