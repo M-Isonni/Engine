@@ -3,13 +3,15 @@
 #include "Vao.h"
 #include <iostream>
 
-namespace engine {
-	class Mesh {
+namespace engine
+{
+	class Mesh
+	{
 	public:
 		Mesh();
 		~Mesh();
-		Mesh(Mesh& InMesh);
+		Mesh(Mesh &InMesh);
+
 	protected:
-		
 	};
 }

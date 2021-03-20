@@ -37,7 +37,7 @@ public:
         return out;
     }
 
-    void normalize(Vector3& invec);
+    void normalize(Vector3 &invec);
     float magnitude(Vector3 invec);
 
     static Vector3 Zero()
@@ -51,14 +51,19 @@ class Transform
 public:
     Transform(){};
     ~Transform(){};
-    Transform(Vector3 pos, Vector3 sca, Vector3 rot){position = pos; scale = sca; rotation = rot;};
+    Transform(Vector3 pos, Vector3 sca, Vector3 rot)
+    {
+        position = pos;
+        scale = sca;
+        rotation = rot;
+    };
 
     Vector3 position;
     Vector3 scale;
     Vector3 rotation;
 
-    static Transform* Base()
+    static Transform *Base()
     {
-        return new Transform(Vector3::Zero(),Vector3(1,1,1),Vector3::Zero());
+        return new Transform(Vector3::Zero(), Vector3(1, 1, 1), Vector3::Zero());
     }
 };

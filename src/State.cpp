@@ -9,10 +9,12 @@ State::~State()
 {
 }
 
-void State::Update(float DeltaTime) {
+void State::Update(float DeltaTime) 
+{
 
 }
 
-void State::OnExitState() {
+void State::OnExitState() 
+{
 
 }

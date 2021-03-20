@@ -3,9 +3,11 @@
 #include <iostream>
 #include <cstdlib>
 
-engine::Shader::Shader(ShaderType shader_type,const char* filename) {
+engine::Shader::Shader(ShaderType shader_type,const char* filename) 
+{
 	SDL_RWops* rw = SDL_RWFromFile(filename, "rb");
-	if (!rw) {
+	if (!rw) 
+	{
 		printf("SDL_RWFromFile failed: %s\n", SDL_GetError());
 		SDL_Log("unable to open file");
 		return;
@@ -13,11 +15,13 @@ engine::Shader::Shader(ShaderType shader_type,const char* filename) {
 
 	std::size_t file_len = SDL_RWsize(rw);
 	auto source = SDL_malloc(file_len + 1);
-	if (!source) {
+	if (!source) 
+	{
 		SDL_Log("unable to allocate memory");		
 		return;
 	}
-	if (SDL_RWread(rw, source, 1, file_len) != file_len) {
+	if (SDL_RWread(rw, source, 1, file_len) != file_len) 
+	{
 		SDL_Log("unable to read file");
 		return;
 	}
@@ -34,11 +38,13 @@ engine::Shader::Shader(ShaderType shader_type,const char* filename) {
 
 	GLint compile_status;
 	glGetShaderiv(shader, GL_COMPILE_STATUS, &compile_status);
-	if (compile_status == GL_FALSE) {
+	if (compile_status == GL_FALSE) 
+	{
 		GLint log_size;
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &log_size);
 		auto error_log = SDL_malloc(log_size + 1);
-		if (!error_log) {
+		if (!error_log) 
+		{
 			SDL_Log("unable to allocato memory for log");
 			return;
 		}
@@ -52,14 +58,17 @@ engine::Shader::Shader(ShaderType shader_type,const char* filename) {
 	shaderID = shader;
 }
 
-engine::Shader::~Shader() {
+engine::Shader::~Shader() 
+{
 	glDeleteShader(shaderID);
 }
 
-void engine::Shader::AttachShader(GLProgram& InProgram) const {
+void engine::Shader::AttachShader(GLProgram& InProgram) const 
+{
 	glAttachShader(InProgram.GetProgram(), shaderID);
 }
 
-void engine::Shader::DetachShader(GLProgram& InProgram) const {
+void engine::Shader::DetachShader(GLProgram& InProgram) const 
+{
 	glDetachShader(InProgram.GetProgram(), shaderID);
 }

@@ -15,37 +15,37 @@ struct Color
 	float a;
 };
 
-static engine::Vao* sprite_vao = nullptr;
+static engine::Vao *sprite_vao = nullptr;
 
 namespace engine
 {
-class SpriteComponent : public Component
-{
-public:
-	SpriteComponent();
-	~SpriteComponent();
-	engine::Vao* _vao_ptr;
-	//static int VaoCounter = 0;
-	static unsigned int Type;
-	Color color;		
-	void transpose_positions(int posX, int posY);
-	virtual void BeginPlay()override;
-	virtual void Tick(float deltaTime) override;
-	void SetColor(float r, float g, float b, float a);
-	virtual void UpdatePos() override;
+	class SpriteComponent : public Component
+	{
+	public:
+		SpriteComponent();
+		~SpriteComponent();
+		engine::Vao *_vao_ptr;
+		//static int VaoCounter = 0;
+		static unsigned int Type;
+		Color color;
+		void transpose_positions(int posX, int posY);
+		virtual void BeginPlay() override;
+		virtual void Tick(float deltaTime) override;
+		void SetColor(float r, float g, float b, float a);
+		virtual void UpdatePos() override;
 
-	inline int get_2D_width(){return (engine::Engine::Get().window_width/ratio * Owner->GetScale().X);};
-	inline int get_2D_height(){return (engine::Engine::Get().window_height/ratio * Owner->GetScale().Y);};
+		inline int get_2D_width() { return (engine::Engine::Get().window_width / ratio * Owner->GetScale().X); };
+		inline int get_2D_height() { return (engine::Engine::Get().window_height / ratio * Owner->GetScale().Y); };
 
-private:	
-	int ratio = 10;
-	GLint x_uniform;
-	GLint y_uniform;
-	GLint scale_x_uniform;
-	GLint scale_y_uniform;
-	GLint color_uniform;
-	void set_position();
-	void set_scale();
-	void set_color();
-};
+	private:
+		int ratio = 10;
+		GLint x_uniform;
+		GLint y_uniform;
+		GLint scale_x_uniform;
+		GLint scale_y_uniform;
+		GLint color_uniform;
+		void set_position();
+		void set_scale();
+		void set_color();
+	};
 } // namespace engine

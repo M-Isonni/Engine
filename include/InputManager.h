@@ -1,7 +1,8 @@
 #pragma once
 #include "Private.h"
 
-namespace engine {
+namespace engine
+{
 	int Quit();
-	void manageInput(SDL_Event& event);
+	void manageInput(SDL_Event &event);
 }

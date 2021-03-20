@@ -9,7 +9,8 @@
 #include "event.h"
 #include "PhysicsMgr.h"
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
 
 	engine::Engine& Engine= engine::Engine::Get();
 	engine::World& World = engine::World::Get();	

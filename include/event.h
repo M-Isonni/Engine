@@ -64,7 +64,7 @@ public:
         }
     }
 
-    template <typename... Args>    
+    template <typename... Args>
     void Call(G obj, Args... args)
     {
         for (auto f : functions)

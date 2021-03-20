@@ -20,7 +20,8 @@ StateMachine::~StateMachine()
 	}*/
 }
 
-void StateMachine::RegisterState(std::pair<E_State, State*>* InState) {
+void StateMachine::RegisterState(std::pair<E_State, State*>* InState) 
+{
 	states.push_back(InState);
 	InState->second->owner = std::make_shared<StateMachine>(*this);
 }
@@ -30,17 +31,22 @@ engine::Actor& StateMachine::GetOwner()
 	return *owner;
 }
 
-void StateMachine::ChangeState(E_State new_state) {
-	if (current_state != NULL) {
+void StateMachine::ChangeState(E_State new_state) 
+{
+	if (current_state != NULL) 
+	{
 		current_state->OnExitState();
 	}
-	for (auto s : states) {
-		if (s->first==new_state) {
+	for (auto s : states) 
+	{
+		if (s->first==new_state) 
+		{
 			current_state = s->second;
 		}
 	}
 }
 
-void StateMachine::Update(float DeltaTime) {
+void StateMachine::Update(float DeltaTime) 
+{
 	current_state->Update(DeltaTime);
 }

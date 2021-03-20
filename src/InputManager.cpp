@@ -1,10 +1,12 @@
 #pragma once
 #include "InputManager.h"
 
-int engine::Quit(){
+int engine::Quit()
+{
 	return 0;
 }
 
-void engine::manageInput(SDL_Event& event) {
+void engine::manageInput(SDL_Event& event) 
+{
 
 }

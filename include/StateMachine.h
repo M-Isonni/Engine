@@ -3,21 +3,27 @@
 #include <map>
 #include "Actor.h"
 
-enum E_State { IDLE, PATROL, CHASE };
+enum E_State
+{
+	IDLE,
+	PATROL,
+	CHASE
+};
 class State;
 class Actor;
-class StateMachine {
+class StateMachine
+{
 public:
-	StateMachine(engine::Actor& InOwner);
+	StateMachine(engine::Actor &InOwner);
 	~StateMachine();
-	
-	engine::Actor* owner;	
-	State* current_state;
-	std::vector<std::pair<E_State, State*>*> states;
+
+	engine::Actor *owner;
+	State *current_state;
+	std::vector<std::pair<E_State, State *> *> states;
 	void Update(float DeltaTime);
 	//void Init(Actor& InOwner);
 	void ChangeState(E_State new_state);
-	void RegisterState(std::pair<E_State, State*>* InState);
+	void RegisterState(std::pair<E_State, State *> *InState);
 
-	engine::Actor& GetOwner();
+	engine::Actor &GetOwner();
 };

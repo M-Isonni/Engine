@@ -1,7 +1,8 @@
 #include "Private.h"
 #include "Context.h"
 
-engine::Context::Context(engine::Window& InWindow) {
+engine::Context::Context(engine::Window& InWindow) ù
+{
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
@@ -9,10 +10,12 @@ engine::Context::Context(engine::Window& InWindow) {
 	gladLoadGLLoader((GLADloadproc)SDL_GL_GetProcAddress);
 }
 
-void* engine::Context::GetContext() const {
+void* engine::Context::GetContext() const 
+{
 	return Ctx;
 }
 
-engine::Context::~Context(){
+engine::Context::~Context()
+{
 	SDL_GL_DeleteContext(Ctx);
 }

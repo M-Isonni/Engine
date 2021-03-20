@@ -19,7 +19,8 @@ engine::SpriteComponent::SpriteComponent()
 	std::shared_ptr<unsigned int> vbo = sprite_vao->Vbo();
 	float f = 1 / ratio;
 
-	float quad[] = {
+	float quad[] = 
+	{
 		0.1, 0.1, 0,
 		-0.1, 0.1, 0,
 		-0.1, -0.1, 0,
